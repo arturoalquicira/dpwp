@@ -10,7 +10,7 @@ class MusicFest(object):
         self.__airport_shuttle = 0
         self.__GA_tickets = 0
         self.__travel_insurance = 0
-        self.__total = self.__flying_ticket + self.__hotel_price + self.__travel_insurance + self.__GA_tickets + self.__airport_shuttle
+        self.__total = 0
 
     @property
     def hotel_price(self):
@@ -37,11 +37,11 @@ class MusicFest(object):
         self.__airport_shuttle = price
 
     @property
-    def ga_ticket(self):
+    def ga_tickets(self):
         return self.__GA_tickets
 
-    @ga_ticket.setter
-    def ga_ticket(self, price):
+    @ga_tickets.setter
+    def ga_tickets(self, price):
         self.__GA_tickets = price
 
     @property
@@ -57,5 +57,10 @@ class MusicFest(object):
         return self.__total
 
     @total.setter
-    def total(self, cost):
-        self.__total = cost
+    def total(self, price):
+        self.__total = price
+
+    def total_cost(self):
+        price = int(self.travel_insurance + self.ga_tickets + self.airport_shuttle + self.flying_ticket + self.hotel_price)
+        return price
+

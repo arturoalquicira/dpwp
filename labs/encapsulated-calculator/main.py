@@ -7,7 +7,7 @@ class MainHandler(webapp2.RequestHandler):
     def get(self):
 
         page = Page()
-        self.response.write(page.format_locals())
+        self.response.write(page.all)
 
         coachella = MusicFest()
         coachella.name = "Coachella Music Valley Fest"
@@ -15,23 +15,27 @@ class MainHandler(webapp2.RequestHandler):
         coachella.state = "California"
         coachella.date = "15 - 17, April"
         coachella.hotel_name = "Hard Rock Cafe"
-        coachella.__hotel_price = 600
-        coachella.__flying_ticket = 350
-        coachella.__airport_shuttle = 100
-        coachella.__GA_tickets = 250
-        coachella.__travel_insurance = 150
-        
+        coachella.hotel_price = 600
+        coachella.flying_ticket = 350
+        coachella.airport_shuttle = 100
+        coachella.ga_tickets = 250
+        coachella.travel_insurance = 150
+        coachella.total = coachella.total_cost()
+        # print coachella.total
+
         lollapalooza = MusicFest()
         lollapalooza.name = "Lollapalooza"
         lollapalooza.city = "Chicago"
         lollapalooza.state = "Illinoise"
         lollapalooza.date = "1 - 3, August"
         lollapalooza.hotel_name = "Burnham Hotel"
-        lollapalooza.__hotel_price = 500
-        lollapalooza.__flying_ticket = 300
-        lollapalooza.__airport_shuttle = 0
-        lollapalooza.__GA_tickets = 250
-        lollapalooza.__travel_insurance = 150
+        lollapalooza.hotel_price = 500
+        lollapalooza.flying_ticket = 300
+        lollapalooza.airport_shuttle = 0
+        lollapalooza.ga_tickets = 250
+        lollapalooza.travel_insurance = 150
+        lollapalooza.total = lollapalooza.total_cost()
+        # print lollapalooza.total
 
         bonnaroo = MusicFest()
         bonnaroo.name = "Bonnaroo"
@@ -39,11 +43,11 @@ class MainHandler(webapp2.RequestHandler):
         bonnaroo.state = "Tennessee"
         bonnaroo.date = "12 - 15, July"
         bonnaroo.hotel_name = "Camping"
-        bonnaroo.__hotel_price = 150
-        bonnaroo.__flying_ticket = 300
-        bonnaroo.__airport_shuttle = 120
-        bonnaroo.__GA_tickets = 280
-        bonnaroo.__travel_insurance = 150
+        bonnaroo.hotel_price = 150
+        bonnaroo.flying_ticket = 300
+        bonnaroo.airport_shuttle = 120
+        bonnaroo.ga_tickets = 280
+        bonnaroo.travel_insurance = 150
         
         sxsw = MusicFest()
         sxsw.name = "SXSW - Music, Film & Interactive"
@@ -72,7 +76,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class Page(object):
     def __init__(self):
-        self.title = "Home"
+        self.title = "Live Tours"
         self.page_open = '''
 <!DOCTYPE html>
 <html>
@@ -101,9 +105,6 @@ class Page(object):
 
         self.all = self.page_open + self.page_content + self.page_links + self.page_close
         self.all = self.all.format(**locals())
-
-    def format_locals(self):
-        return self.all
 
 
 
