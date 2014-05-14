@@ -1,9 +1,13 @@
 
 import webapp2
 from musicFest import MusicFest
+
+
 class MainHandler(webapp2.RequestHandler):
     def get(self):
-        self.response.write('Hello world!')
+
+        page = Page()
+        self.response.write(page.format_locals())
 
         coachella = MusicFest()
         coachella.name = "Coachella Music Valley Fest"
@@ -68,7 +72,7 @@ class MainHandler(webapp2.RequestHandler):
 
 class Page(object):
     def __init__(self):
-        self.__title = "Home"
+        self.title = "Home"
         self.page_open = '''
 <!DOCTYPE html>
 <html>
@@ -78,14 +82,28 @@ class Page(object):
 <body>
         '''
         self.page_content = '''
+
+        '''
+        self.page_links = '''
+        <ul>
+            <li><a href="?fest=coachella">Coachella</a></li>
+            <li><a href="?fest=lollapalooza">Lollapalooza</a></li>
+            <li><a href="?fest=bonnaroo">Bonnaroo</a></li>
+            <li><a href="?fest=sxsw">SXSW</a></li>
+            <li><a href="?fest=outside_lands">Outside Lands</a></li>
+        </ul>
+
         '''
         self.page_close = '''
 </body>
 </html>
         '''
 
+        self.all = self.page_open + self.page_content + self.page_links + self.page_close
+        self.all = self.all.format(**locals())
 
-        
+    def format_locals(self):
+        return self.all
 
 
 
