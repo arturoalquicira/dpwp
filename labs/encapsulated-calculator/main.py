@@ -183,23 +183,18 @@ class Page(object):
             <div class="list-group">
                 <a href="?fest=coachella" class="list-group-item active">
                     <h4 class="list-group-item-heading">Coachella</h4>
-                    <p class="list-group-item-text">$1450 + taxes</p>
                 </a>
                 <a href="?fest=lollapalooza" class="list-group-item ">
                     <h4 class="list-group-item-heading">Lollapalooza</h4>
-                    <p class="list-group-item-text">$1450 + taxes</p>
                 </a>
                 <a href="?fest=bonnaroo" class="list-group-item ">
                     <h4 class="list-group-item-heading">Bonnaroo</h4>
-                    <p class="list-group-item-text">$1450 + taxes</p>
                 </a>
                 <a href="?fest=sxsw" class="list-group-item ">
                     <h4 class="list-group-item-heading">SXSW</h4>
-                    <p class="list-group-item-text">$1450 + taxes</p>
                 </a>
                 <a href="?fest=outside_lands" class="list-group-item ">
                     <h4 class="list-group-item-heading">Outside Lands</h4>
-                    <p class="list-group-item-text">$1450 + taxes</p>
                 </a>
             </div>
         </div>
