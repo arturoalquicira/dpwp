@@ -88,7 +88,7 @@ class MainHandler(webapp2.RequestHandler):
         if festival == '':
             pass
         else:
-            self.title = page.title
+            self.title = festival.upper()
             self.content='''
         <div class="col-md-7">
             <div class="row">

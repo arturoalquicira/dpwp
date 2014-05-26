@@ -45,6 +45,7 @@ print students
 
 
 # dictionaries - associative arrays
+class_info = dict()
 class_info = {'students': students, 'roster count': 9, 'room': 'fsa4a137'}
 print class_info['roster count']
 
