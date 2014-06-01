@@ -1,0 +1,58 @@
+body{
+    color: rgb(255,255,255);
+    background: url("../images/notebook.png");
+}
+
+#background{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -1;
+}
+
+#container{
+    position: relative;
+    z-index: 1;
+}
+
+#header{
+    margin-top: 150px;
+}
+
+#home-form{
+    margin-top: 20px;
+}
+
+#nav-bar-fixed{
+    margin-top: 50px;
+}
+
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.res-info{
+    background-color: rgba(72,101,130,.5);
+    padding-bottom: 10px;
+    margin-top: 15px;
+    border-radius: 5px;
+}
+
+.res-img-corner{
+    border-radius: 5px;
+}
+
+.modal-details{
+    color: #2C3E50;
+}
+
+#content-row{
+    margin-bottom: 30px;
+}
+
+#filters{
+    margin-top: 15px;
+}
+
+
