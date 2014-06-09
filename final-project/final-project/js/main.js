@@ -34,25 +34,3 @@ $(function() {
     });
 });
 
-$(function() {
-    $( "#from2" ).datepicker({
-      minDate: 1,
-      defaultDate: "0d",
-      changeMonth: false,
-      numberOfMonths: 1,
-      dateFormat: "yy-mm-dd",
-      onClose: function( selectedDate ) {
-        $( "#to2" ).datepicker( "option", "minDate", selectedDate );
-      }
-    });
-
-    $( "#to2" ).datepicker({
-      defaultDate: "+1w",
-      changeMonth: false,
-      numberOfMonths: 1,
-      dateFormat: "yy-mm-dd",
-      onClose: function( selectedDate ) {
-        $( "#from2" ).datepicker( "option", "maxDate", selectedDate );
-      }
-    });
-});

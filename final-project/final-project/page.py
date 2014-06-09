@@ -13,7 +13,6 @@ class Page(object):
     <link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="//code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-
 </head>
 <body>
 '''
@@ -41,23 +40,23 @@ class Page(object):
 '''
 
         self.filters = '''
-    <div class="row" id="main-container">
+    <div class="row" id="main-container" >
         <div class="col-md-12">
             <div class="row">
                 <!-- Filters Sidebar -->
                 <div class="col-md-4" id="filters" data-spy="affix">
-                    <form class="" role="form">
-                        <div class="form-group">
-                            <label class="sr-only" for="place">Email address</label>
+                    <form class="" role="form" method="GET">
+                        <div class="form-group ">
+                            <label class="sr-only" for="place">Enter a Place</label>
                             <input autofocus type="text" class="form-control input-lg" id="place" name="place" placeholder="Look for a place...">
                         </div>
                         <div class="form-group ">
-                            <label class="sr-only" for="from2">Password</label>
-                            <input type="text" class="form-control input-lg" id="from2" name="checkin" placeholder="Check-In">
+                            <label class="sr-only" for="from">Check-In</label>
+                            <input type="text" class="form-control input-lg" id="from" name="checkin" placeholder="Check-In">
                         </div>
                         <div class="form-group">
-                            <label class="sr-only" for="to2">Password</label>
-                            <input type="text" class="form-control input-lg" id="to2" name="checkout" placeholder="Check-Out">
+                            <label class="sr-only" for="to">Check-Out</label>
+                            <input type="text" class="form-control input-lg" id="to" name="checkout" placeholder="Check-Out">
                         </div>
                         <button id="btn-search" type="submit" name="submit" class="btn btn-primary btn-lg btn-block">Search <span class="glyphicon glyphicon-search"></span></button>
                     </form>
@@ -83,15 +82,9 @@ class Page(object):
 </html>
 
 '''
-        self.all = ""
 
-    # def print_out(self):
-    #     self.update()
-    #     return self.all
-    #
-    # def update(self):
-    #     self.all = self.open + self.nav_bar + self.content + self.close
-    #     self.all = self.all.format(**locals())
+
+        self.all = ""
 
 
 class FormPage(Page):
@@ -136,5 +129,10 @@ class FormPage(Page):
 
     def page_home(self):
         self.all = self.open + self.anim_bck + self.nav_bar + self.form_open + self.inputs + self.form_close + self.close
+        self.all = self.all.format(**locals())
+        return self.all
+
+    def page_lists(self, details, lists):
+        self.all = self.open + details + self.nav_bar + self.filters + lists + self.close
         self.all = self.all.format(**locals())
         return self.all
